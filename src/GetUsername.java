@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class GetUserName
+public class GetUsername
 {
     public static void main(String[] args)
     {

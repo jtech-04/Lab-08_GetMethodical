@@ -174,4 +174,58 @@ public class SafeInput
         }while(!done);
         return val;
     }
+
+
+    /**
+     *
+     * @param pipe scanner object that you created in main in console
+     * @param prompt message to display as the prompt for the input
+     * @return
+     */
+    public static boolean getYNConfirm(Scanner pipe, String prompt)
+    {
+        String respYN = "";
+        boolean done = false;
+
+        do {
+            System.out.println(prompt + "[Y/N]: ");
+            respYN = pipe.nextLine();
+            if (respYN.equalsIgnoreCase("Y")) {
+                done = true;
+            } else if (respYN.equalsIgnoreCase("N")) {
+                done = true;
+            } else {
+                System.out.println("You must enter [Y/N]: ");
+            }
+        } while (!done);
+        return done;
+    }
+
+    /**
+     *
+     * @param pipe Scanner object that you created in main in the usual way i.e. in or console
+     * @param prompt message to display as the prompt for the input.
+     * @param regEx regEx pattern in java String format to use for matching
+     * @return
+     */
+    public static String getRegExString(Scanner pipe, String prompt, String regEx)
+    {
+        String retVal = "";
+        boolean done = false;
+
+        do
+        {
+            System.out.println(prompt + ": ");
+            retVal = pipe.nextLine();
+            if (retVal.matches(regEx))
+            {
+                done = true;
+            }
+            else
+            {
+                System.out.println("What you entered does not match the pattern " + regEx);
+            }
+        } while (!done);
+        return retVal;
+    }
 }
